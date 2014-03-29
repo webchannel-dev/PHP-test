@@ -64,8 +64,8 @@
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">Public Page</a></li>
-                        <li ><a href="memberPage.php">Member Page</a></li>
-                        <li ><a href="register.php">Sign-up Page</a></li>
+                        <li ><a href="secured.php">Member Page</a></li>
+                        <li ><a href="registration.php">Sign-up Page</a></li>
                         <li ><a href="login.php">Sing-in Page</a></li>
                     </ul>
                 </div>
@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row">
 
-                <h1>Welcome to PHP Test & Responsive Page</h1>
+                <h1>Welcome to PHP Test & Responsive Page | Public Page</h1>
 
                 <div class="well"> Please login in order to access to membership information pages .</div>
             </div>
@@ -83,7 +83,7 @@
                 <div class="col-xs-4"></div>
                 <div class="col-xs-4">
                     <button type="button"  onclick="window.location.href = 'login.php'" class="btn btn-primary btn-lg btn-block"> Sign in </button>
-                    <button type="button"  onclick="window.location.href = 'register.php'" class="btn btn-default btn-lg btn-block"> Sign up </button>
+                    <button type="button"  onclick="window.location.href = 'registration.php'" class="btn btn-default btn-lg btn-block"> Sign up </button>
                 </div>
                 <div class="col-xs-4"></div>
             </div>

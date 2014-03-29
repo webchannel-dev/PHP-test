@@ -58,7 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($emailErr == null and $passwordErr == null) {
         include_once 'include/db_connection.php';
-        $sqlC = "select first_name,last_name from member where email = '" . $email . "' and password = '" . $password . "'";
+        $sqlC = "select first_name,last_name from member where email = '" . mysql_real_escape_string($email)
+                . "' and BINARY password = BINARY '" . md5(mysql_real_escape_string($password)) . "'";
         $result = mysqli_query($myConnection, $sqlC) or die(mysqli_error());
         $num_rows = mysqli_num_rows($result);
         if ($num_rows <= 0) {
@@ -74,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_free_result($result);
             mysqli_close($myConnection);
             echo 'done';
-            header("location:memberPage.php");
+            header("location:secured.php");
         }
     }
 }
@@ -91,7 +92,7 @@ function varify_input($data) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE = edge">
         <meta name="viewport" content="width = device-width, initial-scale = 1">
-        <title>PHP TEST & Responsive Webpage | Login Page</title>
+        <title>PHP TEST & Responsive Webpage | Sign-in Page</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -114,8 +115,8 @@ function varify_input($data) {
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
                         <li ><a href="index.php">Public Page</a></li>
-                        <li ><a href="memberPage.php">Member Page</a></li>
-                        <li ><a href="register.php">Sign-up Page</a></li>
+                        <li ><a href="secured.php">Member Page</a></li>
+                        <li ><a href="registration.php">Sign-up Page</a></li>
                         <li class="active"><a href="login.php">Sing-in Page</a></li>
                     </ul>
                 </div>

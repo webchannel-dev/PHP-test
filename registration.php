@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 /**
  * Copyright (c) 1978-2014 MAVAJ SUN CO, Inc. All Rights Reserved.
@@ -77,11 +78,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($fnameErr == null and $lnameErr == null and $emailErr == null and $passwordErr == null) {
         include_once 'include/db_connection.php';
 
-        $sqlC = "insert into member( first_name, last_name, email, password) values('" . $fname . "','" . $lname . "','" . $email . "','" . $password . "' )";
+        $sqlC = "insert into member( first_name, last_name, email, password) values('" . mysql_real_escape_string($fname) . "','" . mysql_real_escape_string($lname) . "','" . mysql_real_escape_string($email) . "','" . md5(mysql_real_escape_string($password)) . "' )";
         if (!mysqli_query($myConnection, $sqlC)) {
             die('Error: ' . mysqli_error($myConnection));
         }
-        echo '<script type="application/javascript">alert("You have been sign-up succefully ! Please Login now with your email & password"); window.location.href = "index.php";</script>';
+        mysqli_close($myConnection);
+        session_start();
+        $_SESSION['firstName'] = $fname;
+        $_SESSION['lastName'] = $lname;
+        $_SESSION['email'] = $email;
+        echo '<script type="application/javascript">alert("You have been sign-up succefully ! Please Login now with your email & password"); window.location.href = "secured.php";</script>';
     }
 }
 
@@ -97,7 +103,7 @@ function varify_input($data) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PHP TEST & Responsive Webpage | Login Page</title>
+        <title>PHP TEST & Responsive Webpage | Sign-up Page</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -120,8 +126,8 @@ function varify_input($data) {
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
                         <li ><a href="index.php">Public Page</a></li>
-                        <li ><a href="memberPage.php">Member Page</a></li>
-                        <li class="active"><a href="register.php">Sign-up Page</a></li>
+                        <li ><a href="secured.php">Member Page</a></li>
+                        <li class="active"><a href="registration.php">Sign-up Page</a></li>
                         <li ><a href="login.php">Sing-in Page</a></li>
                     </ul>
                 </div>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (c) 1978-2014 MAVAJ SUN CO, Inc. All Rights Reserved.
  *
@@ -36,5 +37,5 @@
  */
 session_start();
 session_destroy();
-header("location:index.php");
+header("location:login.php");
 ?>

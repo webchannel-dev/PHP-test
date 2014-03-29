@@ -36,8 +36,8 @@
  */
 session_start();
 if (isset($_SESSION['email'])) {
-    $fname=$_SESSION['firstName'];
-    $lname=$_SESSION['lastName'];
+    $fname = $_SESSION['firstName'];
+    $lname = $_SESSION['lastName'];
 } else {
     header("location:login.php");
 }
@@ -47,7 +47,7 @@ if (isset($_SESSION['email'])) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PHP TEST & Responsive Webpage</title>
+        <title>PHP TEST & Responsive Webpage | Member Page</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -70,7 +70,7 @@ if (isset($_SESSION['email'])) {
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
                         <li ><a href="index.php">Public Page</a></li>
-                        <li class="active"><a href="memberPage.php">Member Page</a></li>
+                        <li class="active"><a href="secured.php">Member Page</a></li>
                         <li><a href="logout.php">Sing-out</a></li>
                     </ul>
                 </div>
@@ -79,7 +79,7 @@ if (isset($_SESSION['email'])) {
         <div class="container">
             <div class="row">
 
-                <h1><?php echo "Hello $fname $lname , Welcome to members page";?></h1>
+                <h1><?php echo "Hello $fname $lname , Welcome to members page"; ?></h1>
 
             </div>
 
