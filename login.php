@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 /**
  * Copyright (c) 1978-2014 MAVAJ SUN CO, Inc. All Rights Reserved.
@@ -37,3 +38,86 @@
 session_start();
 include_once 'include/db_connection.php';
 ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PHP TEST & Responsive Webpage | Login Page</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="js/google-analytics.js"></script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+
+            <div class="container" >
+                <a class="navbar-brand" href="">PHP TEST</a>
+                <div class="nav-collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.php">Public Page</a></li>
+                        <li><a href="login.php">Login</a></li>
+                    </ul>
+                </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <h1>Login Page</h1>
+            </div>
+            <div class="row">&nbsp;<br/><br/><br/></div>
+            <div class="row">
+                <form class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container" >
+                <p class="text-muted">Copyright (c) 1978-2014 <a href="http://www.MavajSunCo.com">MAVAJ SUN CO</a>, All Rights Reserved.</p>
+                <p class="text-hide">Designed by Ali Jamali</p>
+            </div>
+        </nav>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -52,7 +52,7 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script type="text/javascript" src="htdocs/js/google-analytics.js"></script>
+        <script type="text/javascript" src="js/google-analytics.js"></script>
     </head>
     <body>
 
@@ -63,8 +63,8 @@
                 <a class="navbar-brand" href="">PHP TEST</a>
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Public Page</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li class="active"><a href="index.php">Public Page</a></li>
+                        <li><a href="login.php">Login</a></li>
                     </ul>
                 </div>
         </nav>
