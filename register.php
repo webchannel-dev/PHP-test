@@ -34,9 +34,7 @@
  *
  * @Decsriptoin : User can register in this page for membership area . 
  */
-session_start();
-
-$msg = $fnameErr = $lnameErr = $emailErr = $passwordErr = $fname = $lname = $email = $password = "";
+$fnameErr = $lnameErr = $emailErr = $passwordErr = $fname = $lname = $email = $password = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -45,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $fname = varify_input($_POST["fname"]);
         // check if first name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z ]*$/", $fname)) {
+        if (!preg_match("/^[a-zA-Z0-9 ]*$/", $fname)) {
             $fnameErr = "Only English letters allowed";
         }
     }
@@ -55,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $lname = varify_input($_POST["lname"]);
         // check if last name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z ]*$/", $lname)) {
+        if (!preg_match("/^[a-zA-Z0-9 ]*$/", $lname)) {
             $lnameErr = "Only English letters allowed";
         }
     }
@@ -75,6 +73,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $password = varify_input($_POST["password"]);
     }
+
+    if ($fnameErr == null and $lnameErr == null and $emailErr == null and $passwordErr == null) {
+        include_once 'include/db_connection.php';
+
+        $sqlC = "insert into member( first_name, last_name, email, password) values('" . $fname . "','" . $lname . "','" . $email . "','" . $password . "' )";
+        if (!mysqli_query($myConnection, $sqlC)) {
+            die('Error: ' . mysqli_error($myConnection));
+        }
+        echo '<script type="application/javascript">alert("You have been sign-up succefully ! Please Login now with your email & password"); window.location.href = "index.php";</script>';
+    }
 }
 
 function varify_input($data) {
@@ -83,9 +91,6 @@ function varify_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
-
-include_once 'include/db_connection.php';
-
 ?>
 <html lang="en">
     <head>
