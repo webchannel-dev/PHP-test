@@ -36,13 +36,61 @@
  * @Decsriptoin : Login page allow members to login to system with thire password & username
  */
 session_start();
-include_once 'include/db_connection.php';
+$msg = $emailErr = $passwordErr = $email = $password = $fname = $lname = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (empty($_POST["email"])) {
+        $emailErr = "E-mail is required";
+    } else {
+        $email = varify_input($_POST["email"]);
+// check if e-mail address syntax is valid
+        if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)) {
+            $emailErr = "Invalid email format";
+        }
+    }
+
+    if (empty($_POST["password"])) {
+        $passwordErrErr = "Password is required";
+    } else {
+        $password = varify_input($_POST["password"]);
+    }
+
+    if ($emailErr == null and $passwordErr == null) {
+        include_once 'include/db_connection.php';
+        $sqlC = "select first_name,last_name from member where email = '" . $email . "' and password = '" . $password . "'";
+        $result = mysqli_query($myConnection, $sqlC) or die(mysqli_error());
+        $num_rows = mysqli_num_rows($result);
+        if ($num_rows <= 0) {
+            mysqli_free_result($result);
+            mysqli_close($myConnection);
+            $msg = "Sorry, email or password is wrong";
+        } else {
+            while ($row = mysqli_fetch_array($result)) {
+                $_SESSION['firstName'] = $row['first_name'];
+                $_SESSION['lastName'] = $row['last_name'];
+                $_SESSION['email'] = $email;
+            }
+            mysqli_free_result($result);
+            mysqli_close($myConnection);
+            echo 'done';
+            header("location:memberPage.php");
+        }
+    }
+}
+
+function varify_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE = edge">
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
         <title>PHP TEST & Responsive Webpage | Login Page</title>
 
         <!-- Bootstrap -->
@@ -52,7 +100,7 @@ include_once 'include/db_connection.php';
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src = "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script type="text/javascript" src="js/google-analytics.js"></script>
     </head>
@@ -75,7 +123,21 @@ include_once 'include/db_connection.php';
             <div class="row">
                 <h1>Login Page</h1>
             </div>
-            <div class="row">&nbsp;<br/><br/><br/></div>
+            <div class="row">
+                <div class="col-sm-12"><br/></div>
+            </div>
+            <?php
+            if ($msg != null) {
+
+                echo "
+            <div class='row'>
+                <div class='col-sm-8 alert-danger'> $msg</div>
+            </div>
+            <div class='row'>
+                <div class='col-sm-12'><br/></div>
+            </div>";
+            }
+            ?>
             <div class="row">
                 <form class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <div class="form-group">
