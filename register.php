@@ -32,9 +32,5 @@
  * @Date    : MAR-29-2012
  * @version : 1.0
  *
- * @Decsriptoin : Logout page , to kill session and redirect to public page
+ * @Decsriptoin : User can register in this page for membership area . 
  */
-session_start();
-session_destroy();
-header("location:index.php");
-?>
