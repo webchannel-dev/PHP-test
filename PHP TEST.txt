@@ -1,0 +1,17 @@
+TEST for PHP
+
+1.  Implement PHP based website with 3 simple pages: registration, login and secured page
+2.  Registration page contains form with several fields (first name, last name, e-mail, password).
+ Validation rules:
+2.1 First name - required, contains only alphanumeric (A-Za-z0-9) characters
+2.2 Last name - required, contains only alphanumeric characters
+2.3 E-mail - required, must be unique and must match valid e-mail address format (something@something.something)
+2.4 Password - required, minimum length of 6 characters, contains at least one alphabetic character and at least one digit
+5.  Upon successful registration happens auto-login, and redirect to the secured page
+6.  Secured page contains:
+6.1 Text: Hello, {first name} {last name}!
+6.2 Logout button
+7.  After logout, redirect to the login page
+8.  Login page contains form for email and password input and upon successful authorization, redirect to the same secured page
+9.  Validation of forms must be performed on server side and output of errors is necessary
+10. Data are stored in MySql database

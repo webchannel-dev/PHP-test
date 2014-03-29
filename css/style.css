@@ -1,0 +1,21 @@
+/* 
+    Created on : Mar 26, 2014, 8:42:01 PM
+    Author     : Ali Jamali ( MavajSunCo.com )
+*/
+
+body{
+    padding-top: 70px;
+}
+.navbar{
+    background-color: #666;
+    height: 60px;
+}
+.navbar-brand img{
+    width: 55px;
+    margin-top: -12px;
+
+}
+
+.nav{
+    margin-top: 5px;
+}
