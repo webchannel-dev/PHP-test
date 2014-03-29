@@ -64,7 +64,9 @@
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">Public Page</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <li ><a href="memberPage.php">Member Page</a></li>
+                        <li ><a href="register.php">Sign-up Page</a></li>
+                        <li ><a href="login.php">Sing-in Page</a></li>
                     </ul>
                 </div>
         </nav>
@@ -80,8 +82,8 @@
             <div class="row">
                 <div class="col-xs-4"></div>
                 <div class="col-xs-4">
-                    <button type="button"  onclick="window.location.href='login.php'" class="btn btn-primary btn-lg btn-block"> Sign in </button>
-                    <button type="button"  onclick="window.location.href='register.php'" class="btn btn-default btn-lg btn-block"> Sign up </button>
+                    <button type="button"  onclick="window.location.href = 'login.php'" class="btn btn-primary btn-lg btn-block"> Sign in </button>
+                    <button type="button"  onclick="window.location.href = 'register.php'" class="btn btn-default btn-lg btn-block"> Sign up </button>
                 </div>
                 <div class="col-xs-4"></div>
             </div>

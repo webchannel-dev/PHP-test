@@ -119,8 +119,10 @@ function varify_input($data) {
                 <a class="navbar-brand" href="">PHP TEST</a>
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Public Page</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <li ><a href="index.php">Public Page</a></li>
+                        <li ><a href="memberPage.php">Member Page</a></li>
+                        <li class="active"><a href="register.php">Sign-up Page</a></li>
+                        <li ><a href="login.php">Sing-in Page</a></li>
                     </ul>
                 </div>
         </nav>
@@ -160,15 +162,7 @@ function varify_input($data) {
                         </div>
                         <span class="error">* <?php echo $passwordErr; ?></span>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Remember me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Sign in</button>

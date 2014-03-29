@@ -34,7 +34,72 @@
  *
  * @Decsriptoin : restricted page , only member can see this page after login to system
  */
-
 session_start();
-
+if (isset($_SESSION['email'])) {
+    $fname=$_SESSION['firstName'];
+    $lname=$_SESSION['lastName'];
+} else {
+    header("location:login.php");
+}
 ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PHP TEST & Responsive Webpage</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="js/google-analytics.js"></script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+
+            <div class="container" >
+                <a class="navbar-brand" href="">PHP TEST</a>
+                <div class="nav-collapse ">
+                    <ul class="nav navbar-nav">
+                        <li ><a href="index.php">Public Page</a></li>
+                        <li class="active"><a href="memberPage.php">Member Page</a></li>
+                        <li><a href="logout.php">Sing-out</a></li>
+                    </ul>
+                </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+
+                <h1><?php echo "Hello $fname $lname , Welcome to members page";?></h1>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4"></div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container" >
+                <p class="text-muted">Copyright (c) 1978-2014 <a href="http://www.MavajSunCo.com">MAVAJ SUN CO</a>, All Rights Reserved.</p>
+                <p class="text-hide">Designed by Ali Jamali</p>
+            </div>
+        </nav>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

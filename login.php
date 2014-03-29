@@ -113,8 +113,10 @@ function varify_input($data) {
                 <a class="navbar-brand" href="">PHP TEST</a>
                 <div class="nav-collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Public Page</a></li>
-                        <li><a href="login.php">Login</a></li>
+                        <li ><a href="index.php">Public Page</a></li>
+                        <li ><a href="memberPage.php">Member Page</a></li>
+                        <li ><a href="register.php">Sign-up Page</a></li>
+                        <li class="active"><a href="login.php">Sing-in Page</a></li>
                     </ul>
                 </div>
         </nav>
@@ -142,15 +144,17 @@ function varify_input($data) {
                 <form class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" required="">
                         </div>
+                        <span class="error">* <?php echo $emailErr; ?></span>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password" required="">
                         </div>
+                        <span class="error">* <?php echo $passwordErr; ?></span>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
