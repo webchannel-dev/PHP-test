@@ -41,25 +41,37 @@ $msg = $fnameErr = $lnameErr = $emailErr = $passwordErr = $fname = $lname = $ema
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($_POST["fname"])) {
-        $nameErr = "First Name is required";
+        $fnameErr = "First Name is required";
     } else {
         $fname = varify_input($_POST["fname"]);
+        // check if first name only contains letters and whitespace
+        if (!preg_match("/^[a-zA-Z ]*$/", $fname)) {
+            $fnameErr = "Only English letters allowed";
+        }
     }
 
     if (empty($_POST["lname"])) {
-        $nameErr = "Last Name is required";
+        $lnameErr = "Last Name is required";
     } else {
         $lname = varify_input($_POST["lname"]);
+        // check if last name only contains letters and whitespace
+        if (!preg_match("/^[a-zA-Z ]*$/", $lname)) {
+            $lnameErr = "Only English letters allowed";
+        }
     }
 
     if (empty($_POST["email"])) {
-        $nameErr = "E-mail is required";
+        $emailErr = "E-mail is required";
     } else {
         $email = varify_input($_POST["email"]);
+        // check if e-mail address syntax is valid
+        if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)) {
+            $emailErr = "Invalid email format";
+        }
     }
 
     if (empty($_POST["password"])) {
-        $nameErr = "Password is required";
+        $passwordErrErr = "Password is required";
     } else {
         $password = varify_input($_POST["password"]);
     }
