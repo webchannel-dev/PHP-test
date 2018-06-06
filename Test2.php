@@ -71,7 +71,7 @@ $default = (empty($_GET['lang'])) ? 'en' : $_GET['lang'];
         <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
             <div class="container" >
                 <p class="text-muted"><?php echo $lang[$default]['copyright']; ?></p>
-                <p class="text-hide">Designed by Ali Jamali</p>
+                <p class="text-hide">Designed by MAVAJ SUN CO</p>
             </div>
         </nav>
 
