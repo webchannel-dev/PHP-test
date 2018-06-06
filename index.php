@@ -92,7 +92,7 @@
         <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
             <div class="container" >
                 <p class="text-muted">Copyright (c) 1978-2014 <a href="http://www.MavajSunCo.com">MAVAJ SUN CO</a>, All Rights Reserved.</p>
-                <p class="text-hide">Designed by Ali Jamali</p>
+                <p class="text-hide">Designed by MAVAJ SUN CO</p>
             </div>
         </nav>
 
